@@ -12,8 +12,8 @@ function login(){
 }
 
 function loginSuccess(response){
+    // Setting a cookie with the login Token then send user to home.html
     Cookies.set(`loginToken`, response.data.token);
-    // if this doesnt work, add /
     location.href = `/pages/home.html`;
 }
 
@@ -21,5 +21,4 @@ function loginFailure(error){
     alert(error.response.data.error)
 }
 
-// Variables and Event Listeners
 document.getElementById(`loginSubmit`).addEventListener(`click`, login);
